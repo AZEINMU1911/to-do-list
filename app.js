@@ -22,6 +22,7 @@ deadlineField.placeholder = 'Set a deadline';
 
 const priorityField = document.createElement('select');
 priorityField.id = 'priorityInput';
+priorityField.placeholder = "Set priority level";
 const priorities = ['Low','Medium','High'];
 priorities.forEach(priority => {
   const option = document.createElement('option');
