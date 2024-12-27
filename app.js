@@ -92,3 +92,31 @@ addButton.addEventListener('click', () => {
     priorityField.value = '';
   }
 });
+
+//Sort function
+const sortBy = document.getElementById('sortby');
+sortBy.addEventListener('change', () => {
+  const criterion = sortBy.value;
+  const tasks = Array.from(document.querySelector('.taskItem'));
+  
+  tasks.sort((a,b) =>{
+    const aText = a.querySelector('span').innerText.toLowerCase();
+    const bText = b.querySelector('span').innerText.toLowerCase();
+
+    switch (criterion) {
+      case 'category':
+        return aText.localeCompare(bText);
+
+        case 'priority':
+          return a.dataset.priority.localeCompare(b.dataset.priority);
+
+      case 'deadline':
+        return new Date(a.dataset.deadline) - new Date(b.dataset.deadline);
+
+      default:
+        return 0;
+    }
+  });
+
+  tasks.forEach(task => tasklist.appendChild(task));
+})
