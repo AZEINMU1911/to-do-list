@@ -10,12 +10,12 @@ inputField.type = 'text';
 inputField.id = 'taskInput';
 inputField.placeholder = 'Enter a task...';
 
-const categoryField = document.createElement('category');
+const categoryField = document.createElement('input');
 categoryField.type = 'text';
 categoryField.id = 'taskCategory';
 categoryField.placeholder = 'Enter a category...';
 
-const deadlineField = document.createElement('date');
+const deadlineField = document.createElement('input');
 deadlineField.type = 'date';
 deadlineField.id = 'deadlineInput';
 deadlineField.placeholder = 'Set a deadline';
