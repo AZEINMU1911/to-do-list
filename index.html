@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div id="app">
+      <input type="text" id="taskInput" placeholder="Enter a task..." />
+      <input type="text" id="categoryInput" placeholder="Enter a category..." />
+      <input type="date" id="deadlineInput" placeholder="Set a deadline..." />
+      <select id="priorityInput">
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+      </select>
+      <button id="addTaskButton">Add Task</button>
+      <ul id="taskList"></ul>
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
