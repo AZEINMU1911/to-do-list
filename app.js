@@ -20,6 +20,8 @@ deadlineField.type = 'date';
 deadlineField.id = 'deadlineInput';
 deadlineField.placeholder = 'Set a deadline';
 
+const priorityField = document.createElement('select');
+priorityField.id = 'priorityInput';
 const placeholderOption = document.createElement('option');
 placeholderOption.value = "";
 placeholderOption.disabled = true;
@@ -28,8 +30,6 @@ placeholderOption.hidden = true;
 placeholderOption.innerText = "Select Priority";
 priorityField.appendChild(placeholderOption);
 
-const priorityField = document.createElement('select');
-priorityField.id = 'priorityInput';
 const priorities = ['Low','Medium','High'];
 priorities.forEach(priority => {
   const option = document.createElement('option');
