@@ -10,11 +10,34 @@ inputField.type = 'text';
 inputField.id = 'taskInput';
 inputField.placeholder = 'Enter a task...';
 
+const categoryField = document.createElement('category');
+categoryField.type = 'text';
+categoryField.id = 'taskCategory';
+categoryField.placeholder = 'Enter a category...';
+
+const deadlineField = document.createElement('date');
+deadlineField.type = 'date';
+deadlineField.id = 'deadlineInput';
+deadlineField.placeholder = 'Set a deadline';
+
+const priorityField = document.createElement('select');
+priorityField.id = 'PriorityInput';
+const priorities = ['Low','Medium','High'];
+priorities.forEach(priority => {
+  const option = document.createElement('option');
+  option.value = priority;
+  option.innerText = priority;
+  priorityField.appendChild(option);
+});
+
 const addButton = document.createElement('button');
 addButton.id = 'addTaskButton';
 addButton.innerText = 'Add Task';
 
 appContainer.appendChild(inputField);
+appContainer.appendChild(categoryField);
+appContainer.appendChild(deadlineField);
+appContainer.appendChild(priorityField);
 appContainer.appendChild(addButton);
 
 // Task list container
