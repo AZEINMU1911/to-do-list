@@ -48,13 +48,16 @@ appContainer.appendChild(taskList);
 // Add event listener to the add button
 addButton.addEventListener('click', () => {
   const taskText = inputField.value.trim();
+  const categoryText = categoryField.value.trim();
+  const deadlineText = deadlineField.value;
+  const priorityText = priorityField.value;
 
   if (taskText !== '') {
     const taskItem = document.createElement('li');
     taskItem.className = 'taskItem';
 
     const taskContent = document.createElement('span');
-    taskContent.innerText = taskText;
+    taskContent.innerText = `${taskText} [${categoryText || 'No Category'} - Due: ${deadlineText} - Priority: ${priorityText}]`;
     
     // Mark as completed button
     const completeButton = document.createElement('button');
@@ -76,5 +79,8 @@ addButton.addEventListener('click', () => {
 
     taskList.appendChild(taskItem);
     inputField.value = '';
+    categoryField.value= '';
+    deadlineField.value = '';
+    priorityField.value = '';
   }
 });
