@@ -94,7 +94,7 @@ addButton.addEventListener('click', () => {
 });
 
 //Sort function
-const sortBy = document.getElementById('sortby');
+const sortBy = document.getElementById('sortBy');
 sortBy.addEventListener('change', () => {
   const criterion = sortBy.value;
   const tasks = Array.from(document.querySelector('.taskItem'));
@@ -119,4 +119,11 @@ sortBy.addEventListener('change', () => {
   });
 
   tasks.forEach(task => tasklist.appendChild(task));
+})
+
+//Search function
+const searchInput = document.getElementById(searchinput);
+searchInput.addEventListener('input', () => {
+  const query = searchinput.value.toLowerCase();
+  
 })
