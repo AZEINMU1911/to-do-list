@@ -125,5 +125,8 @@ sortBy.addEventListener('change', () => {
 const searchInput = document.getElementById(searchinput);
 searchInput.addEventListener('input', () => {
   const query = searchinput.value.toLowerCase();
-  
-})
+  document.querySelectorAll('.taskItem').forEach(task => {
+    const text = task.querySelector('span').innerText.toLowerCase();
+    task.style.display = text.include(query) ? 'flex' : 'none';
+  });
+});
