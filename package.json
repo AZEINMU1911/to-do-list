@@ -1,0 +1,11 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "This is a simple yet customizable **To-Do List Application** built using HTML, CSS, and JavaScript. The application allows users to add tasks with additional attributes such as categories, deadlines, and priority levels, providing a more organized and dynamic task management experience.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

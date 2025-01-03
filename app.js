@@ -130,3 +130,5 @@ searchInput.addEventListener('input', () => {
     task.style.display = text.include(query) ? 'flex' : 'none';
   });
 });
+
+//Self Storage
