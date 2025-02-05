@@ -6,15 +6,23 @@
     <title>To-Do List</title>
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <!-- These elements are outside the #app container which is created by JS -->
-    <input type="text" id="searchInput" placeholder="Search task..." />
-    <select id="sortBy">
-      <option value="none" selected>Sort By</option>
-      <option value="category">Category</option>
-      <option value="priority">Priority</option>
-      <option value="deadline">Deadline</option>
-    </select>
+    <div id="app">
+      <!-- Task creation will be added here dynamically by JS -->
+
+      <!-- Move search and sort inside #app -->
+      <div id="controls">
+        <input type="text" id="searchInput" placeholder="Search task..." />
+        <select id="sortBy">
+          <option value="none" selected>Sort By</option>
+          <option value="category">Category</option>
+          <option value="priority">Priority</option>
+          <option value="deadline">Deadline</option>
+        </select>
+      </div>
+    </div>
+
     <script src="app.js"></script>
   </body>
 </html>
