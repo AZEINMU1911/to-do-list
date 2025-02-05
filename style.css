@@ -99,3 +99,17 @@ body {
     color: #c82333;
   }
   
+  /* Search & Sort Controls */
+#controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Ensure inputs and select inside controls are properly sized */
+#controls input,
+#controls select {
+  flex: 1;
+  max-width: 200px; /* Adjust width to fit properly */
+}
