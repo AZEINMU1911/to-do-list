@@ -9,9 +9,7 @@
 
   <body>
     <div id="app">
-      <!-- Task creation will be added here dynamically by JS -->
-
-      <!-- Move search and sort inside #app -->
+      <!-- Controls should come first -->
       <div id="controls">
         <input type="text" id="searchInput" placeholder="Search task..." />
         <select id="sortBy">
@@ -21,8 +19,23 @@
           <option value="deadline">Deadline</option>
         </select>
       </div>
-    </div>
 
-    <script src="app.js"></script>
+      <!-- Task Form -->
+      <div id="taskForm">
+        <input type="text" id="taskInput" placeholder="Enter a task..." />
+        <input
+          type="text"
+          id="categoryInput"
+          placeholder="Enter a category..."
+        />
+        <input type="date" id="deadlineInput" />
+        <select id="priorityInput">
+          <option value="low">Low Priority</option>
+          <option value="medium">Medium Priority</option>
+          <option value="high">High Priority</option>
+        </select>
+        <button id="addTaskButton">Add Task</button>
+      </div>
+    </div>
   </body>
 </html>
