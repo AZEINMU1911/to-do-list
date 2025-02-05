@@ -63,15 +63,21 @@ addButton.addEventListener('click', () => {
   if (taskText !== '') {
     const taskItem = document.createElement('li');
     taskItem.className = 'taskItem';
+    // Set dataset for sorting
+    taskItem.dataset.category = categoryText || 'No Category';
+    taskItem.dataset.deadline = deadlineText;
+    taskItem.dataset.priority = priorityText;
 
     const taskContent = document.createElement('span');
-    taskContent.innerText = `${taskText} [${categoryText || 'No Category'} - Due: ${deadlineText} - Priority: ${priorityText}]`;
+    taskContent.innerText = `${taskText} [${categoryText || 'No Category'} - Due: ${deadlineText || 'N/A'} - Priority: ${priorityText || 'N/A'}]`;
     
     // Mark as completed button
     const completeButton = document.createElement('button');
     completeButton.innerText = '✔';
     completeButton.addEventListener('click', () => {
-      taskContent.style.textDecoration = 'line-through';
+      // Toggle completed style
+      taskContent.style.textDecoration = taskContent.style.textDecoration === 'line-through' ? 'none' : 'line-through';
+      saveTasks();
     });
 
     // Delete button
@@ -79,6 +85,7 @@ addButton.addEventListener('click', () => {
     deleteButton.innerText = '🗑';
     deleteButton.addEventListener('click', () => {
       taskList.removeChild(taskItem);
+      saveTasks();
     });
 
     taskItem.appendChild(taskContent);
@@ -86,10 +93,12 @@ addButton.addEventListener('click', () => {
     taskItem.appendChild(deleteButton);
 
     taskList.appendChild(taskItem);
+    // Clear inputs
     inputField.value = '';
-    categoryField.value= '';
+    categoryField.value = '';
     deadlineField.value = '';
     priorityField.value = '';
+    saveTasks();
   }
 });
 
