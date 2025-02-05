@@ -106,29 +106,29 @@ addButton.addEventListener('click', () => {
 const sortBy = document.getElementById('sortBy');
 sortBy.addEventListener('change', () => {
   const criterion = sortBy.value;
+  // Get all task items
   const tasks = Array.from(document.querySelectorAll('.taskItem'));
-  
-  tasks.sort((a,b) =>{
-    const aText = a.querySelectorAll('span').innerText.toLowerCase();
-    const bText = b.querySelectorAll('span').innerText.toLowerCase();
 
+  tasks.sort((a, b) => {
     switch (criterion) {
       case 'category':
-        return aText.localeCompare(bText);
-
-        case 'priority':
-          return a.dataset.priority.localeCompare(b.dataset.priority);
-
+        return a.dataset.category.localeCompare(b.dataset.category);
+      case 'priority':
+        return a.dataset.priority.localeCompare(b.dataset.priority);
       case 'deadline':
         return new Date(a.dataset.deadline) - new Date(b.dataset.deadline);
-
       default:
         return 0;
     }
   });
 
-  tasks.forEach(task => tasklist.appendChild(task));
-})
+  // Clear current list and re-append sorted tasks
+  taskList.innerHTML = '';
+  tasks.forEach(task => taskList.appendChild(task));
+  // Optionally save the new order
+  saveTasks();
+});
+
 
 //Search function
 const searchInput = document.getElementById('searchInput');
