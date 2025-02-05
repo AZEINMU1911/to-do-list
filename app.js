@@ -140,5 +140,40 @@ searchInput.addEventListener('input', () => {
   });
 });
 
-
 //Self Storage
+
+const saveTasks = () => {
+  const tasks = Array.from(taskList.children).map(task => ({
+    text: task.querySelector('span').innerText,
+    category: task.dataset.category,
+    deadline: task.dataset.deadline,
+    priority: task.dataset.priority,
+    completed: task.querySelector('span').style.textDecoration === 'line-through'
+  }));
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+};
+
+const loadTasks = () => {
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
+  if (tasks) {
+    tasks.forEach(taskData => {
+      // Re-create the task item
+      const taskItem = document.createElement('li');
+      taskItem.className = 'taskItem';
+      taskItem.dataset.category = taskData.category;
+      taskItem.dataset.deadline = taskData.deadline;
+      taskItem.dataset.priority = taskData.priority;
+
+      const taskContent = document.createElement('span');
+      taskContent.innerText = taskData.text;
+      if (taskData.completed) {
+        taskContent.style.textDecoration = 'line-through';
+      }
+
+      // (Add complete and delete buttons here as needed)
+
+      // Finally, append the task item to the task list
+      taskList.appendChild(taskItem);
+    });
+  }
+};
