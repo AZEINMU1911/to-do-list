@@ -135,9 +135,10 @@ const searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('input', () => {
   const query = searchInput.value.toLowerCase();
   document.querySelectorAll('.taskItem').forEach(task => {
-    const text = task.querySelectorAll('span').innerText.toLowerCase();
-    task.style.display = text.include(query) ? 'flex' : 'none';
+    const text = task.querySelector('span').innerText.toLowerCase();
+    task.style.display = text.includes(query) ? 'flex' : 'none';
   });
 });
+
 
 //Self Storage
