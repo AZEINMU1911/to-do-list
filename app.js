@@ -97,11 +97,11 @@ addButton.addEventListener('click', () => {
 const sortBy = document.getElementById('sortBy');
 sortBy.addEventListener('change', () => {
   const criterion = sortBy.value;
-  const tasks = Array.from(document.querySelector('.taskItem'));
+  const tasks = Array.from(document.querySelectorAll('.taskItem'));
   
   tasks.sort((a,b) =>{
-    const aText = a.querySelector('span').innerText.toLowerCase();
-    const bText = b.querySelector('span').innerText.toLowerCase();
+    const aText = a.querySelectorAll('span').innerText.toLowerCase();
+    const bText = b.querySelectorAll('span').innerText.toLowerCase();
 
     switch (criterion) {
       case 'category':
@@ -126,7 +126,7 @@ const searchInput = document.getElementById(searchinput);
 searchInput.addEventListener('input', () => {
   const query = searchinput.value.toLowerCase();
   document.querySelectorAll('.taskItem').forEach(task => {
-    const text = task.querySelector('span').innerText.toLowerCase();
+    const text = task.querySelectorAll('span').innerText.toLowerCase();
     task.style.display = text.include(query) ? 'flex' : 'none';
   });
 });
