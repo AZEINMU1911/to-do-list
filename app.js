@@ -122,9 +122,9 @@ sortBy.addEventListener('change', () => {
 })
 
 //Search function
-const searchInput = document.getElementById(searchinput);
+const searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('input', () => {
-  const query = searchinput.value.toLowerCase();
+  const query = searchInput.value.toLowerCase();
   document.querySelectorAll('.taskItem').forEach(task => {
     const text = task.querySelectorAll('span').innerText.toLowerCase();
     task.style.display = text.include(query) ? 'flex' : 'none';
