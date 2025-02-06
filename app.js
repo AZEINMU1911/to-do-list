@@ -1,57 +1,21 @@
 // HTML structure
-const appContainer = document.createElement('div');
-appContainer.id = 'app';
 
-document.body.appendChild(appContainer);
+const appContainer = document.getElementById('app');
 
-// Add input field and button for adding tasks
-const inputField = document.createElement('input');
-inputField.type = 'text';
-inputField.id = 'taskInput';
-inputField.placeholder = 'Enter a task...';
+// Retrieve the input fields and button from the existing HTML elements
+const inputField = document.getElementById('taskInput');
+const categoryField = document.getElementById('categoryInput');
+const deadlineField = document.getElementById('deadlineInput');
+const priorityField = document.getElementById('priorityInput');
+const addButton = document.getElementById('addTaskButton');
 
-const categoryField = document.createElement('input');
-categoryField.type = 'text';
-categoryField.id = 'taskCategory';
-categoryField.placeholder = 'Enter a category...';
-
-const deadlineField = document.createElement('input');
-deadlineField.type = 'date';
-deadlineField.id = 'deadlineInput';
-deadlineField.placeholder = 'Set a deadline';
-
-const priorityField = document.createElement('select');
-priorityField.id = 'priorityInput';
-const placeholderOption = document.createElement('option');
-placeholderOption.value = "";
-placeholderOption.disabled = true;
-placeholderOption.selected = true;
-placeholderOption.hidden = true;
-placeholderOption.innerText = "Select Priority";
-priorityField.appendChild(placeholderOption);
-
-const priorities = ['Low','Medium','High'];
-priorities.forEach(priority => {
-  const option = document.createElement('option');
-  option.value = priority;
-  option.innerText = priority;
-  priorityField.appendChild(option);
-});
-
-const addButton = document.createElement('button');
-addButton.id = 'addTaskButton';
-addButton.innerText = 'Add Task';
-
-appContainer.appendChild(inputField);
-appContainer.appendChild(categoryField);
-appContainer.appendChild(deadlineField);
-appContainer.appendChild(priorityField);
-appContainer.appendChild(addButton);
-
-// Task list container
-const taskList = document.createElement('ul');
-taskList.id = 'taskList';
-appContainer.appendChild(taskList);
+// Create the Task list container (if it does not already exist in HTML)
+let taskList = document.getElementById('taskList');
+if (!taskList) {
+  taskList = document.createElement('ul');
+  taskList.id = 'taskList';
+  appContainer.appendChild(taskList);
+}
 
 // Add event listener to the add button
 addButton.addEventListener('click', () => {
