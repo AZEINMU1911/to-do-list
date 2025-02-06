@@ -140,8 +140,9 @@ searchInput.addEventListener('input', () => {
   });
 });
 
-//Self Storage
+//Task Storage
 
+//Save Task
 const saveTasks = () => {
   const tasks = Array.from(taskList.children).map(task => ({
     text: task.querySelector('span').innerText,
@@ -153,6 +154,7 @@ const saveTasks = () => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 };
 
+//Load Task
 const loadTasks = () => {
   const tasks = JSON.parse(localStorage.getItem('tasks'));
   if (tasks) {
@@ -170,10 +172,26 @@ const loadTasks = () => {
         taskContent.style.textDecoration = 'line-through';
       }
 
-      // (Add complete and delete buttons here as needed)
-
-      // Finally, append the task item to the task list
+      const completeButton = document.createElement('button');
+      completeButton.innerText = '✔';
+      completeButton.addEventListener('click', () => {
+        taskContent.style.textDecoration = taskContent.style.textDecoration === 'line-through' ? 'none' : 'line-through';
+        saveTasks();
+      });
+      const deleteButton = document.createElement('button');
+      deleteButton.innerText = '🗑';
+      deleteButton.addEventListener('click', () => {
+        taskList.removeChild(taskItem);
+        saveTasks();
+      });
+      
+      taskItem.appendChild(taskContent);
+      taskItem.appendChild(completeButton);
+      taskItem.appendChild(deleteButton);
+      
       taskList.appendChild(taskItem);
     });
   }
 };
+
+loadTasks();
