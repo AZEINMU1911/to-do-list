@@ -16,6 +16,7 @@ if (!taskList) {
   taskList.id = 'taskList';
   appContainer.appendChild(taskList);
 }
+// ##CREATE AN ERROR CODE THAT DISPALY THAT SAID TASK IS EXISTING
 
 // Add event listener to the add button
 addButton.addEventListener('click', () => {
